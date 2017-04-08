@@ -5,7 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
+    <!-- 开启Shiro注解 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
     <context:annotation-config></context:annotation-config>
 
     <!-- 开启controller注解支持，spring mvc的配置文件应该仅扫描@controller注解的类 -->
@@ -46,7 +50,7 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="104857600"></property>
     </bean>
-    <mvc:interceptors>
-        <bean class="com.dsdl.eidea.base.web.handler.SecurityHandler" />
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<bean class="com.dsdl.eidea.base.web.handler.SecurityHandler" />-->
+    <!--</mvc:interceptors>-->
 </beans>

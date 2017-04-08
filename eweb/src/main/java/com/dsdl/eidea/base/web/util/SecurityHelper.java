@@ -34,29 +34,7 @@ public class SecurityHelper {
     public VerifiedResult verifiedResult(HttpServletRequest request, OperatorDef[] operatorDefs) {
         UserContent userContent = (UserContent) request.getSession().getAttribute(WebConst.SESSION_USERCONTENT);
         VerifiedResult verifiedResult = new VerifiedResult();
-        if (userContent == null) {
-            String token=request.getHeader(WebConst.HEADER_TOKEN);
-            if(StringUtil.isNotEmpty(token))
-            {
-                if(JwtUtil.validateToken(token))
-                {
-                    userContent= SpringContextHolder.getBean(UserService.class).getUserContent(token);
-                }
-                else
-                {
-                    verifiedResult.setCanAccessed(false);
-                    verifiedResult.setMessage("你需要登录");
-                    return verifiedResult;
-                }
-            }
-            else
-            {
-                verifiedResult.setCanAccessed(false);
-                verifiedResult.setMessage("你需要登录");
-                return verifiedResult;
-            }
 
-        }
         Map<String, List<OperatorDef>> privilegesMap = userContent.getPrivileges();
 
         Set<String> privilegeKeySet = privilegesMap.keySet();

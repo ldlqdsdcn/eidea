@@ -6,4 +6,5 @@
 	<import resource="classpath:applicationContext.xml"/>
 	<!--引入dubbo-->
 	<!--<import resource="classpath:spring/providers.xml"/>-->
+	<import resource="classpath:spring-shiro.xml"/>
 	</beans>
