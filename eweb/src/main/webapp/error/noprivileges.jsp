@@ -1,16 +1,11 @@
 <%@ page import="com.google.gson.Gson" %>
 <%@ page import="com.dsdl.eidea.core.web.result.ApiResult" %>
 <%@ page import="com.dsdl.eidea.core.web.result.def.ErrorCodes" %>
-<%@ page import="java.util.Enumeration" %>
 <% String headerKey = "x-requested-with";
     String headerContent = "XMLHttpRequest";
-    Enumeration<String> headers=request.getHeaderNames();
-    while (headers.hasMoreElements())
-    {
-        String header=headers.nextElement();
-        System.out.println(header+" : "+request.getHeader(header));
-    }
-    if (!headerContent.equals(request.getHeader(headerKey))) {
+    String angularKey = "accept";
+    String angularContent = "application/json, text/plain, */*";
+    if (!headerContent.equals(request.getHeader(headerKey)) && !angularContent.equals(request.getHeader(angularKey))) {
         response.setContentType("text/html; charset=UTF-8");
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

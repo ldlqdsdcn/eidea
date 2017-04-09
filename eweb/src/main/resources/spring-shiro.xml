@@ -13,7 +13,7 @@
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
 	    <property name="securityManager" ref="securityManager"/>
 	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
-	    <property name="loginUrl" value="/login.jsp"/>
+	    <property name="loginUrl" value="/common/frameLogin.jsp"/>
 		<!-- 权限认证失败，则跳转到指定页面 -->
 	    <property name="unauthorizedUrl" value="/error/noprivileges.jsp"/>
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
@@ -25,6 +25,7 @@
 				 /login.jsp=anon
 				/login=anon
 				/doLogin=anon
+				/common/frameLogin.jsp=anon
 	            /error/*.jsp=anon
 	            /**=authc
 	        </value>  
