@@ -18,6 +18,7 @@ import com.dsdl.eidea.core.web.vo.PagingSettingResult;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.googlecode.genericdao.search.Search;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,7 +50,7 @@ public class TableController {
         modelAndView.addObject(WebConst.PAGE_URI, URI);
         return modelAndView;
     }
-
+    @RequiresPermissions("language:table")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public ApiResult<List<TableBo>> list(HttpSession session) {

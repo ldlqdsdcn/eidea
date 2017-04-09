@@ -91,7 +91,7 @@ public class ClientController extends BaseController {
         return get(clientBo.getId());
     }
 
-    @RequiresPermissions("base:update")
+    @RequiresPermissions("base:updateqqq")
     @RequestMapping(value = "/saveForUpdated", method = RequestMethod.POST)
     @ResponseBody
     public ApiResult<ClientBo> saveForUpdate(@Validated @RequestBody ClientBo clientBo) {

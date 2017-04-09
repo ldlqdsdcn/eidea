@@ -36,7 +36,19 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-
+    <bean
+            class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">
+                    error/noprivileges
+                </prop>
+                <prop key="org.apache.shiro.authz.UnauthenticatedException">
+                    error/noprivileges
+                </prop>
+            </props>
+        </property>
+    </bean>
     <mvc:default-servlet-handler />
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>

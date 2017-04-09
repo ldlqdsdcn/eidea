@@ -14,6 +14,7 @@ import com.dsdl.eidea.core.web.util.SearchHelper;
 import com.dsdl.eidea.core.web.vo.PagingSettingResult;
 import com.dsdl.eidea.util.StringUtil;
 import com.googlecode.genericdao.search.Search;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,7 +40,7 @@ public class LanguageController {
     private HttpSession session;
 
     @RequestMapping(value = "/showList", method = RequestMethod.GET)
-    @PrivilegesControl(operator = OperatorDef.VIEW, returnType = ReturnType.JSP)
+    @RequiresPermissions("language:view")
     public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("/core/language/language");
         modelAndView.addObject("pagingSettingResult", PagingSettingResult.getDefault());
