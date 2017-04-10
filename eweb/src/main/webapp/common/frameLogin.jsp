@@ -8,6 +8,7 @@
     if (!headerContent.equals(request.getHeader(headerKey)) && !angularContent.equals(request.getHeader(angularKey))) {
         response.setContentType("text/html; charset=UTF-8");
 %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/inc/taglib.jsp" %>
 <html>
 <head>

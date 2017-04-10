@@ -24,6 +24,8 @@
 				/css/**=anon
 				 /login.jsp=anon
 				/login=anon
+				/languages=anon
+				/common/changeLanguage=anon
 				/doLogin=anon
 				/common/frameLogin.jsp=anon
 	            /error/*.jsp=anon
